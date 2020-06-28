@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import Weather from './Weather'
 import { Icon } from '../../utils/helpers';
+import { DayProptypes } from './types';
 
 const Day = ({ data, city, maxMin, weekDay, day, month }) => {
   const [current, setCurrent] = useState(data[0])
@@ -12,7 +13,7 @@ const Day = ({ data, city, maxMin, weekDay, day, month }) => {
       <header>
         
         <section>
-          <img src={Icon[current.weather[0].main]} style={{ width: 220 }} /> 
+          <Image src={Icon[current.weather[0].main]} /> 
         </section>
 
         <section>
@@ -29,7 +30,7 @@ const Day = ({ data, city, maxMin, weekDay, day, month }) => {
 
         <LeftAlignedSection>
 
-          <SubText style={{ marginBottom: 22 }}>{city}</SubText>
+          <MarginedSubText>{city}</MarginedSubText>
 
           <div>
             <DateInfo>{weekDay}</DateInfo>
@@ -44,6 +45,8 @@ const Day = ({ data, city, maxMin, weekDay, day, month }) => {
     </Wrap>
   )
 }
+
+Day.propTypes = DayProptypes;
 
 const Wrap = styled.div`
   width: 100%;
@@ -75,6 +78,10 @@ const ValuesContainer = styled.div`
   }
 `
 
+const Image = styled.img`
+  width: 220px;
+`
+
 const LeftAlignedSection = styled.section`
   text-align: left;
 `
@@ -84,6 +91,10 @@ const SubText = styled.p`
   font-size: 32px;
   color: #A8AABD;
   margin: 0;
+`
+
+const MarginedSubText = styled(SubText)`
+  margin-bottom: 22px;
 `
 
 const Temperature = styled.h1`

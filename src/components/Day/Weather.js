@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import WeatherItem from './WeatherItem';
+import { WeatherProptypes } from './types';
 
 const Weather = ({ data, current, setCurrent }) => (
   <Wrap>
@@ -10,9 +11,6 @@ const Weather = ({ data, current, setCurrent }) => (
       const time = el.dt_txt.split(' ')[1]
       const formattedTime = time.substring(0, time.length - 3)
       const selected = el.dt_txt === current.dt_txt ? true : false;
-
-      console.log("condition", condition)
-
       return (
         <WeatherItem
           key={el.dt_txt}
@@ -26,6 +24,8 @@ const Weather = ({ data, current, setCurrent }) => (
     })}
   </Wrap>
 )
+
+Weather.propTypes = WeatherProptypes;
 
 const Wrap = styled.main`
   display: flex;

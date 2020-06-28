@@ -1,14 +1,17 @@
 import React from 'react';
 import styled, { css } from 'styled-components';
 import { Icon } from '../../utils/helpers';
+import { WeatherItemProptypes } from './types';
 
 const WeatherItem = ({ dayTime, condition, temperature, selected, onClick }) => (
   <WeatherItemButton selected={selected} onClick={onClick}>
     <SubText>{dayTime}</SubText>
-    <img src={Icon[condition]} style={{ width: 80, margin: '10px 0px' }} /> 
+    <Image src={Icon[condition]} /> 
     <SmallTemperature>{`${temperature}°`}</SmallTemperature>
   </WeatherItemButton>
 )
+
+WeatherItem.propTypes = WeatherItemProptypes;
 
 const WeatherItemButton = styled.button`
   display: flex;
@@ -23,6 +26,11 @@ const WeatherItemButton = styled.button`
     background-color: #51557A;
   `}
 `;
+
+const Image = styled.img`
+  width: 80px;
+  margin: 10px 0px;
+`
 
 const SubText = styled.p`
   font-size: 32px;

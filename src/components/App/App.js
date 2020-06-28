@@ -32,8 +32,6 @@ const App = () => {
 
   if (error) return <Error>{error}</Error>
 
-  console.log("counter", counter)
-
   const dataInDays = divideDataIntoDays(data.list)
   const firstFullDay = Object.values(dataInDays)[counter]
   const maxMin = calculateMaxAndMinimumPerDay(firstFullDay)
