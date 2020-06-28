@@ -1,0 +1,80 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Day renders without crashing 1`] = `
+<DocumentFragment>
+  <div
+    class="sc-AxheI iMgqHG"
+  >
+    <header>
+      <section>
+        <img
+          class="sc-AxmLO iNVsqa"
+        />
+      </section>
+      <section>
+        <div
+          class="sc-Axmtr cPNkH"
+        >
+          <p
+            class="sc-fzoLsD ejTEwe"
+          >
+            sunny
+          </p>
+          <p
+            class="sc-fzoLsD ejTEwe"
+          >
+            321° / 123°
+          </p>
+        </div>
+        <h1
+          class="sc-fzplWN jyrcLH"
+        >
+          -150°
+        </h1>
+      </section>
+      <section
+        class="sc-fzozJi eSNYUn"
+      >
+        <p
+          class="sc-fzoLsD sc-fzpans dYhdXC"
+        >
+          Berlin
+        </p>
+        <div>
+          <h2
+            class="sc-fznyAO eriGZt"
+          >
+            Friday
+          </h2>
+          <h2
+            class="sc-fznyAO eriGZt"
+          >
+            13. October
+          </h2>
+        </div>
+      </section>
+    </header>
+    <main
+      class="sc-AxgMl eAxa-Da"
+    >
+      <button
+        class="sc-AxjAm fMgpPH"
+      >
+        <p
+          class="sc-AxiKw jAJuga"
+        >
+          15:00
+        </p>
+        <img
+          class="sc-AxirZ fcqyWt"
+        />
+        <h3
+          class="sc-AxhUy gZXmQZ"
+        >
+          -150°
+        </h3>
+      </button>
+    </main>
+  </div>
+</DocumentFragment>
+`;
