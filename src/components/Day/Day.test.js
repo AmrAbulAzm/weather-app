@@ -1,5 +1,5 @@
 import React from 'react';
-import { render, cleanup } from '@testing-library/react';
+import { render } from '@testing-library/react';
 import Day from '.';
 
 it('Day renders without crashing', () => {
@@ -14,7 +14,8 @@ it('Day renders without crashing', () => {
     weekDay: 'Friday',
     day: '13',
     month: 'October'
-  }
+  };
   const { asFragment } = render(<Day {...props} />);
+
   expect(asFragment()).toMatchSnapshot();
 });

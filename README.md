@@ -1,68 +1,40 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Weather-app
 
-## Available Scripts
+### Instructions
 
-In the project directory, you can run:
+#### To start app:
 
-### `yarn start`
+1. Clone this repo.
+3. Run `npm i` to install necessary packages.
+4. Run `npm run dev` to run the app. That will launch the express proxy server and the Frontend application parallely.
+5. Navigate in your browser to [http://localhost:3000](http://localhost:3000)
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+#### To run tests:
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+Run `npm test`
 
-### `yarn test`
+#### To start frontend app:
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Run `npm start`
 
-### `yarn build`
+#### To start server:
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Run `npm run server`
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+### Technical and design considerations
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+The data fetched includes weather information for 5 consecutive days. *The goal is to create a weather application displaying the weather for a single day.* Due to that, I made a decision to split the data per day and then added two small arrows at the top left and top right of the screen to navigate between the different days.
 
-### `yarn eject`
+To resolve the CORS dilemma, a simple express proxy is implemented. When the app is run using `npm run dev`, that starts both the server and the app parallely. With this setup, the calls are proxied through the server.
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+When examining the returned weather data, three main conditions were found (Clouds, Rain, Clear). There was not an asset provided for the rain condition. Also, the sun svg was in a different color than the clouds one. I added a rain asset that looks aesthetically similar and changed the color of the sun svg to match that of the clouds.
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Finally, *Ideally, your solution works on small and large screens*. The provided design would not have worked so well on smaller screens. For that I took the liberty to improvise a bit. I slightly adjusted the layout to work for phones, tablets, etc..
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+To acheive the required functionality and resilience a bunch of different packages, libraries and services where used:
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `yarn build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+1. Express for the proxy server
+2. Styled-components for styling and basic animation
+3. React testing library and jest for testing
+4. aXe for accessibility auditing
+5. Chrome dev tools for responsiveness and debugging

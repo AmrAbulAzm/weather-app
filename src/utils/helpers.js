@@ -4,23 +4,23 @@ import Rain from '../assets/weather-rain.svg';
 
 const divideDataIntoDays = input => {
   return input.reduce((acc, value) => {
-    const date = value.dt_txt.split(' ')[0]
+    const date = value.dt_txt.split(' ')[0];
     if (acc[date]) {
-      acc[date].push(value)
-      return acc
-    }
-    acc[date] = [value]
-    return acc
-  }, {})
-}
+      acc[date].push(value);
+      return acc;
+    };
+    acc[date] = [value];
+    return acc;
+  }, {});
+};
 
 const calculateMaxAndMinimumPerDay = input => {
-  const temperatures = input.map(i => Math.round(i.main.temp - 273.15))
+  const temperatures = input.map(i => Math.round(i.main.temp - 273.15));
   return {
     max: Math.max(...temperatures),
     min: Math.min(...temperatures)
-  }
-}
+  };
+};
 
 const returnWeekDay = date => {
   return [
@@ -31,12 +31,12 @@ const returnWeekDay = date => {
     'Thursday',
     'Friday',
     'Saturday'
-  ][new Date(date).getDay()]
-}
+  ][new Date(date).getDay()];
+};
 
 const returnDay = date => {
-  return date.split('-')[2]
-}
+  return date.split('-')[2];
+};
 
 const returnMonth = date => {
   return [
@@ -52,14 +52,14 @@ const returnMonth = date => {
     'October',
     'November',
     'December'
-  ][new Date(date).getMonth()]
-}
+  ][new Date(date).getMonth()];
+};
 
 const Icon = {
-  ['Clear']: Clear,
-  ['Rain']: Rain,
-  ['Clouds']: Clouds
-}
+  'Clear': Clear,
+  'Rain': Rain,
+  'Clouds': Clouds
+};
 
 export {
   divideDataIntoDays,
@@ -68,4 +68,4 @@ export {
   returnDay,
   returnMonth,
   Icon,
-}
+};

@@ -3,13 +3,19 @@ import styled, { css } from 'styled-components';
 import { Icon } from '../../utils/helpers';
 import { WeatherItemProptypes } from './types';
 
-const WeatherItem = ({ dayTime, condition, temperature, selected, onClick }) => (
+const WeatherItem = ({
+  dayTime,
+  condition,
+  temperature,
+  selected,
+  onClick
+}) => (
   <WeatherItemButton selected={selected} onClick={onClick}>
     <SubText>{dayTime}</SubText>
-    <Image src={Icon[condition]} /> 
+    <Image src={Icon[condition]} alt={'smallWeatherIcon'} /> 
     <SmallTemperature>{`${temperature}°`}</SmallTemperature>
   </WeatherItemButton>
-)
+);
 
 WeatherItem.propTypes = WeatherItemProptypes;
 
@@ -21,6 +27,7 @@ const WeatherItemButton = styled.button`
   border: none;
   background: none;
   outline: none;
+
   ${props => props.selected && css`
     border-radius: 6px;
     background-color: #51557A;
@@ -30,24 +37,18 @@ const WeatherItemButton = styled.button`
 const Image = styled.img`
   width: 80px;
   margin: 10px 0px;
-`
+`;
 
 const SubText = styled.p`
   font-size: 32px;
   color: #A8AABD;
-  margin: 0;
-`
-
-const Temperature = styled.h1`
-  font-size: 165px;
-  color: white;
-  margin: 0;
-`
+  margin: 0px;
+`;
 
 const SmallTemperature = styled.h3`
   font-size: 55px;
   color: white;
   margin: 0px;
-`
+`;
 
 export default WeatherItem;

@@ -1,4 +1,4 @@
-import { shape, string, number, bool, array, arrayOf, func } from 'prop-types'
+import { shape, string, number, bool, arrayOf, func } from 'prop-types';
 
 const weatherItem = shape({
   dt: number,
@@ -26,13 +26,13 @@ const weatherItem = shape({
     deg: number
   }),
   rain: shape({
-    ['3h']: number
+    '3h': number
   }),
   sys: shape({
     pod: string
   }),
   dt_txt: string.isRequired
-})
+});
 
 const DayProptypes = {
   data: arrayOf(weatherItem).isRequired,
@@ -44,13 +44,13 @@ const DayProptypes = {
   weekDay: string.isRequired,
   day: string.isRequired,
   month: string.isRequired
-}
+};
 
 const WeatherProptypes = {
   data: arrayOf(weatherItem).isRequired,
   current: weatherItem.isRequired,
   setCurrent: func.isRequired
-}
+};
 
 const WeatherItemProptypes = {
   dayTime: string.isRequired,
@@ -58,10 +58,10 @@ const WeatherItemProptypes = {
   temperature: number.isRequired,
   selected: bool.isRequired,
   onClick: func.isRequired
-}
+};
 
 export {
   DayProptypes,
   WeatherProptypes,
   WeatherItemProptypes
-}
+};

@@ -15,7 +15,7 @@ const App = () => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
-  const [counter, setCounter] = useState(0)
+  const [counter, setCounter] = useState(2);
 
   useEffect(() => {
     fetch('/weather-info')
@@ -23,22 +23,22 @@ const App = () => {
     .then(data => {
       data.type !== 'error'
       ? setData(data)
-      : setError(data.message)
-      setLoading(false)
-    })
+      : setError(data.message);
+      setLoading(false);
+    });
   }, []);
 
-  if (loading) return <Loader />
+  if (loading) return <Loader />;
 
-  if (error) return <Error>{error}</Error>
+  if (error) return <Error>{error}</Error>;
 
-  const dataInDays = divideDataIntoDays(data.list)
-  const firstFullDay = Object.values(dataInDays)[counter]
-  const maxMin = calculateMaxAndMinimumPerDay(firstFullDay)
-  const date = firstFullDay[0].dt_txt.split(' ')[0]
-  const weekDay = returnWeekDay(date)
-  const day = returnDay(date)
-  const month = returnMonth(date)
+  const dataInDays = divideDataIntoDays(data.list);
+  const dayData = Object.values(dataInDays)[counter];
+  const maxMin = calculateMaxAndMinimumPerDay(dayData);
+  const date = dayData[0].dt_txt.split(' ')[0];
+  const weekDay = returnWeekDay(date);
+  const day = returnDay(date);
+  const month = returnMonth(date);
 
   return (
     <Container>
@@ -51,7 +51,7 @@ const App = () => {
       }
       </ArrowContainer>
       <Day
-        data={firstFullDay}
+        data={dayData}
         city={data.city.name}
         maxMin={maxMin}
         weekDay={weekDay}
@@ -60,7 +60,7 @@ const App = () => {
       />
     </Container>
   );
-}
+};
 
 const Error = styled.h1`
   font-size: 40px;
@@ -72,26 +72,27 @@ const ArrowContainer = styled.div`
   width: 100%;
   padding: 10px;
   box-sizing: border-box;
-`
-
-const Arrow = css`
-  border: solid black;
-  border-width: 0 3px 3px 0;
-  display: inline-block;
-  padding: 3px;
 `;
 
-const RightArrow = styled.div`
+const Arrow = css`
+  border: solid rgba(255,255,255,0.5);
+  border-width: 0 3px 3px 0;
+  padding: 3px; 
+  background: none;   
+  outline: none;  
+`;
+
+const RightArrow = styled.button`
   ${Arrow}
   transform: rotate(-45deg);
   float: right;
-`
+`;
 
-const LeftArrow = styled.div`
+const LeftArrow = styled.button`
   ${Arrow}
   transform: rotate(135deg);
   float: left;
-`
+`;
 
 const Container = styled.div`
   text-align: center;

@@ -3,51 +3,52 @@
 exports[`Day renders without crashing 1`] = `
 <DocumentFragment>
   <div
-    class="sc-AxheI iMgqHG"
+    class="sc-AxgMl ewNxMU"
   >
     <header>
       <section>
         <img
-          class="sc-AxmLO iNVsqa"
+          alt="bigWeatherIcon"
+          class="sc-Axmtr bhtEpz"
         />
       </section>
       <section>
         <div
-          class="sc-Axmtr cPNkH"
+          class="sc-AxheI ikEUcU"
         >
           <p
-            class="sc-fzoLsD ejTEwe"
+            class="sc-fzozJi jPUxRQ"
           >
             sunny
           </p>
           <p
-            class="sc-fzoLsD ejTEwe"
+            class="sc-fzozJi jPUxRQ"
           >
             321° / 123°
           </p>
         </div>
         <h1
-          class="sc-fzplWN jyrcLH"
+          class="sc-fzpans hEsCVz"
         >
           -150°
         </h1>
       </section>
       <section
-        class="sc-fzozJi eSNYUn"
+        class="sc-AxmLO fJWbmy"
       >
         <p
-          class="sc-fzoLsD sc-fzpans dYhdXC"
+          class="sc-fzozJi sc-fzoLsD dxqxGG"
         >
           Berlin
         </p>
         <div>
           <h2
-            class="sc-fznyAO eriGZt"
+            class="sc-fzplWN iHlsnq"
           >
             Friday
           </h2>
           <h2
-            class="sc-fznyAO eriGZt"
+            class="sc-fzplWN iHlsnq"
           >
             13. October
           </h2>
@@ -55,21 +56,22 @@ exports[`Day renders without crashing 1`] = `
       </section>
     </header>
     <main
-      class="sc-AxgMl eAxa-Da"
+      class="sc-AxhUy cnZzqw"
     >
       <button
-        class="sc-AxjAm fMgpPH"
+        class="sc-AxjAm cPOcFJ"
       >
         <p
-          class="sc-AxiKw jAJuga"
+          class="sc-AxiKw jKCCZu"
         >
           15:00
         </p>
         <img
+          alt="smallWeatherIcon"
           class="sc-AxirZ fcqyWt"
         />
         <h3
-          class="sc-AxhUy gZXmQZ"
+          class="sc-AxhCb eKxkdA"
         >
           -150°
         </h3>

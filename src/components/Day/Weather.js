@@ -3,14 +3,19 @@ import styled from 'styled-components';
 import WeatherItem from './WeatherItem';
 import { WeatherProptypes } from './types';
 
-const Weather = ({ data, current, setCurrent }) => (
+const Weather = ({
+  data,
+  current,
+  setCurrent
+}) => (
   <Wrap>
     {data.map(el => {
-      const temperature = Math.round(el.main.temp - 273.15)
-      const condition = el.weather[0].main
-      const time = el.dt_txt.split(' ')[1]
-      const formattedTime = time.substring(0, time.length - 3)
+      const temperature = Math.round(el.main.temp - 273.15);
+      const condition = el.weather[0].main;
+      const time = el.dt_txt.split(' ')[1];
+      const formattedTime = time.substring(0, time.length - 3);
       const selected = el.dt_txt === current.dt_txt ? true : false;
+
       return (
         <WeatherItem
           key={el.dt_txt}
@@ -20,10 +25,10 @@ const Weather = ({ data, current, setCurrent }) => (
           selected={selected}
           onClick={() => setCurrent(el)}
         />
-      )
+      );
     })}
   </Wrap>
-)
+);
 
 Weather.propTypes = WeatherProptypes;
 
